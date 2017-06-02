@@ -1,0 +1,57 @@
+{{include file="system/header.html"}}
+<style>
+a{color:#888;}
+li:hover a{color:#fff;}
+</style>
+<!--新闻资讯 开始-->
+<div class="announce-box">
+          <div class="announce-img"><img src="__PUBLIC__/temp/contact.jpg" alt=""/></div>
+		  <div class="announce wrapper">
+		      <div class="banner-title"><h1>NEWS</h1><h3>新闻资讯</h3></div>
+				<div class="conNaw">
+					 <ul>
+					 {{ffcategory catid=$cat.parentid to=dat}}
+					 {{foreach from=$dat.child item=i}}
+						  <li {{if $cat.catid eq $i.catid}} class="current" {{/if}}><a href="{{$i.url}}">{{$i.name}}</a></li>
+						  {{/foreach}}
+						
+					 </ul>
+				</div>
+				<div class="position">
+				   <span>当前位置 :</span><a href=__ROOT__">首页 /</a><a href="__ROOT__/information"> 新闻资讯  /</a>{{ffposition a_class="last"}}
+			 </div>
+			    <div class="news-bg">
+				     <div class="new-info">
+				     	{{fflist catid=$cat.catid order="sort asc,update_time desc" attr="hot" pagesize=1 to=dd}}
+				     	{{if $dd}}
+					       <div class="new-left fl">
+						        <h4><a href="{{$dd.0.url}}">{{$dd.0.title|truncate:"20":""}}</a></h4>
+								<p>{{$dd.0.description|truncate:"150":"…"}}</p>
+								<a class="check-detail" href="{{$dd.0.url}}"><span class="fl">查看详情</span><b class="details fr">&gt;</b></a>
+						   </div> 
+						   <div class="new-img fr">
+						      <a href="href="{{$dd.0.url}}""><img src="{{$dd.0.thumb}}" alt="{{$dd.0.title}}"/></a>
+						   </div>
+						   {{/if}}
+					 </div>   
+				</div>
+				
+				<ul class="news-list">
+				{{ffpagelist order="sort ASC,update_time desc" pagesize=10 to=d}}
+				{{foreach from=$d.info item=i}}
+				     <li>
+					     <time>{{$i.update_time|date_format:"%Y.%m.%d"}}</time>
+						 <div class="newsImg"><a href="{{$i.url}}"><img src="{{$i.thumb}}" alt="{{$i.title}}"/></a></div>
+						  <div class="new-left fr">
+						        <h4><a href="{{$i.url}}">{{$i.title|truncate:"30":""}}</a></h4>
+								<p>{{$dd.0.description|truncate:"82":"…"}}</p>
+								<a class="check-detail" href="{{$i.url}}"><span class="fl">查看详情</span><b class="details fr">&gt;</b></a>
+						   </div> 
+					 </li>
+				{{/foreach}}
+					 
+				</ul>
+				{{$d.pages}}
+		  </div>
+</div>
+{{include file="system/footer.html"}}

@@ -1,0 +1,64 @@
+<!--项目展示 结束-->
+<!---footer-box 开始-->
+<div class="footer-box">
+      <div class="footer wrapper">
+	        <div class="footer-list fl">
+	        {{ffcategory catid=0 to=data}}
+	        	{{foreach from=$data item=i}}
+			    <dl>
+				   <dt>{{$i.name}}</dt>
+				   
+				   <dd>
+				   {{ffcategory catid=$i.catid to=bt}}
+				   {{foreach from=$bt.child item=tt}}
+				   <a href="{{$tt.url}}">{{$tt.name}}</a>
+				   {{/foreach}}			       
+				   </dd> 
+				</dl>
+				{{/foreach}}
+				
+			</div>
+			<div class="footer-right fr">
+			    <div class="down-list">
+				   <div class="select clearfix">
+						<div class="show-box fr">
+						   <span>集团公司</span>
+							  <ul class="text-down">
+							  {{fflink pagesize=6 to=ddd type_id=2}}
+						{{foreach from=$ddd item=iii }}
+						     <li><a href="{{$iii.url}}" target="_blank" style="display:block;color:#033333;">{{$iii.name}}</a></li>
+						     {{/foreach}}
+							
+				             </ul>
+						  </div>
+					   </div>
+			    </div>
+				<div class="qr-code clearfix">
+				     <span class="weixin"><img src="__PUBLIC__/uploads/{{ffad aid=2}}" class="eq1" alt=""/></span>
+					 <span class="xinlang"><img src="__PUBLIC__/uploads/{{ffad aid=3}}" class="eq2" alt=""/></span>
+				</div>
+		   </div>	
+	  </div>
+	  <div class="footer-botoom wrapper">
+	         <div class="copyright fl"><a href="__ROOT__">{{ffset var="copyright"}}</a>
+			                           <a href="__ROOT__">版权所有</a>
+									   <a target="_blank" href="http://www.miibeian.gov.cn">{{ffset var="icpno"}}</a>
+									   <a target="_blank" href="http://www.fangfa.net">技术支持：方法数码</a>
+			 </div>
+			 <div class="connection fr">
+			        <div class="frideshop">
+					     <span>友情链接</span>
+						<ul>
+						{{fflink pagesize=6 to=ddd type_id=1}}
+						{{foreach from=$ddd item=iii }}
+						     <li><a href="{{$iii.url}}" target="_blank" style="display:block;color:#033333;">{{$iii.name}}</a></li>
+						     {{/foreach}}
+						
+						</ul>
+					</div>
+			 </div>
+	  </div>
+</div>
+<!---footer-box 结束-->
+</body>
+</html>

@@ -1,0 +1,38 @@
+{{include file="system/header.html"}}
+<div class="announce-box">
+          <div class="announce-img"><img src="__PUBLIC__/temp/contact.jpg" alt=""/></div>
+		  <div class="announce recruite wrapper">
+		      <div class="banner-title"><h1>RECRUIT</h1><h3>人力资源</h3></div>
+				<div class="conNaw">
+					 <ul>
+					 {{ffcategory catid=$cat.parentid to=dd}}
+					 {{foreach from=$dd.child item=i}}
+					  <li {{if $cat.catid eq $i.catid}} class="current" {{/if}}><a href="{{$i.url}}">{{$i.name}}</a></li>
+					 {{/foreach}}
+					 </ul>
+				</div>
+				<div class="position">
+				   <span>当前位置 :</span><a href="__ROOT__">首页 /</a><a href="__ROOT__/rlzy"> 人力资源 /</a>
+				   {{ffposition a_class="last"}}
+			 </div>
+			<div class="recruite-text">
+				 <h4>招聘职位：{{$job.title}}</h4>
+				 <div class="recruite-info clearfix">
+				       <span>所属部门：{{$job.department}}</span>
+					   <span> 经验要求：{{$job.experience}}</span>
+					   <span> 学历要求：{{$job.degree}}</span>
+					   <span> 人数要求：{{$job.job_number}}</span>
+					   <p>专业要求：{{$job.address}}</p>
+					   <p>工作地点：{{$job.place}}</p>
+					   <p>工资待遇：{{$job.guerdon}}</p>
+				 </div>
+                <style>
+                    .describe p{height: auto;}
+                </style>
+				 <div class="describe">
+				     {{$job.notes}}
+				 </div>
+			</div>
+		  </div>
+</div>
+{{include file="system/footer.html"}}

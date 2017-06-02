@@ -1,0 +1,19 @@
+[ 2017-06-02T18:44:50+08:00 ] NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead functions.php 第 118 行.
+[ 2017-06-02T18:44:50+08:00 ] NOTIC: [2048] Only variables should be assigned by reference FbaseAction.class.php 第 62 行.
+[ 2017-06-02T18:44:50+08:00 ] NOTIC: [8] Undefined index: forward FbaseAction.class.php 第 63 行.
+[ 2017-06-02T18:44:50+08:00 ] NOTIC: [2048] Declaration of RelationModel::_after_insert() should be compatible with Model::_after_insert($data, $options) RelationModel.class.php 第 24 行.
+[ 2017-06-02T18:44:50+08:00 ] NOTIC: [2048] Declaration of UserModel::delete() should be compatible with Model::delete($options = Array) UserModel.class.php 第 23 行.
+[ 2017-06-02T18:44:50+08:00 ] NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead DbMysql.class.php 第 62 行.
+[ 2017-06-02T18:44:50+08:00 ] SQL:  RunTime:0.005000s SQL = SHOW COLUMNS FROM fangfa_user
+[ 2017-06-02T18:44:50+08:00 ] SQL:  RunTime:0.000000s SQL = SELECT fangfa_user.*,
+				  fangfa_role.role_id AS `role_id`,
+				  fangfa_role.nickname AS `rolenickname`,
+				  fangfa_role.name AS `rolename` FROM `fangfa_user` LEFT JOIN `fangfa_role_user`
+				 		  ON (fangfa_role_user.user_id=fangfa_user.user_id) LEFT JOIN `fangfa_role`
+				 	 ON (fangfa_role_user.role_id=fangfa_role.role_id) WHERE fangfa_user.user_id='1' LIMIT 1 
+[ 2017-06-02T18:44:50+08:00 ] NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead Smarty_Compiler.class.php 第 270 行.
+[ 2017-06-02T18:44:50+08:00 ] NOTIC: [2] unlink(D:\wamp\www\bxdy/data/admin/runtime/templates_c\%%96^96F^96FF8E8A%%home.html.php): No such file or directory core.write_file.php 第 44 行.
+[ 2017-06-02T18:44:51+08:00 ] NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead Smarty_Compiler.class.php 第 270 行.
+[ 2017-06-02T18:44:51+08:00 ] NOTIC: [2] unlink(D:\wamp\www\bxdy/data/admin/runtime/templates_c\%%23^235^23515278%%header.html.php): No such file or directory core.write_file.php 第 44 行.
+[ 2017-06-02T18:44:51+08:00 ] NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead Smarty_Compiler.class.php 第 270 行.
+[ 2017-06-02T18:44:51+08:00 ] NOTIC: [2] unlink(D:\wamp\www\bxdy/data/admin/runtime/templates_c\%%D2^D27^D27C030E%%footer.html.php): No such file or directory core.write_file.php 第 44 行.

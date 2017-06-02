@@ -1,0 +1,49 @@
+{{include file="system/header.html"}}
+<div class="announce-box">
+          <div class="announce-img"><img src="__PUBLIC__/temp/contact.jpg" alt=""/></div>
+		  <div class="announce wrapper">
+		      <div class="banner-title"><h1>NEWS</h1><h3>{{$cat.name}}</h3></div>
+				<div class="conNaw">
+					 <ul>
+					 {{ffcategory catid=$cat.parentid to=dat}}
+					 {{foreach from=$dat.child item=i}}
+						  <li {{if $cat.catid eq $i.catid}} class="current" {{/if}}><a href="{{$i.url}}">{{$i.name}}</a></li>
+						  {{/foreach}}
+						
+					 </ul>
+				</div>
+				<div class="position">
+				   <span>当前位置 :</span><a href=__ROOT__">首页 /</a><a href="__ROOT__/information"> 新闻资讯  /</a>{{ffposition a_class="last"}}
+			 </div>
+			  <div class="new-detail">
+			         <div class="details-title">
+			           <h4>{{$data.title}}</h4>
+					   <span>发布时间：{{$data.update_time|date_format:"%Y-%m-%d"}}
+                        &nbsp;&nbsp;来源：{{if $data.source}}{{$data.source}}{{else}}本站{{/if}}&nbsp;&nbsp;网址：<a href="{{$data.wangzhi}}" style="color: blue;" target="_blank">{{$data.wangzhi}}</a>
+                       </span>
+
+                     </div>
+					 <div class="detais-text" style="border-bottom:1px solid #f0f2f4;">
+					      <p> {{$data.content}}</p>
+						  
+					 </div>
+			   </div>
+			   <div class="nextPage clearfix">
+			         <div class="nextLefe">
+                         <div class="first-page">
+                             {{if $data.pre_title neq '没有了'}}
+                             <span>上一篇：</span><a href="{{$data.pre_url}}">{{$data.pre_title}}</a>
+                             {{/if}}
+                         </div>
+					       <div class="first-page">
+					       	 {{if $data.next_title neq '没有了'}}
+						       <span>下一篇：</span><a href="{{$data.next_url}}">{{$data.next_title}}</a>
+						           {{/if}}
+						   </div>
+
+					 </div>
+					 <a href="javascript:history.go(-1);" class="back">返回</a>
+			   </div>
+		  </div>
+</div>
+{{include file="system/footer.html"}}

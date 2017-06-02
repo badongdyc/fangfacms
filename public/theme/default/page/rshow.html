@@ -1,0 +1,28 @@
+{{include file="system/header.html"}}
+
+<!--新闻资讯 开始-->
+<div class="announce-box">
+          <div class="announce-img"><img src="__PUBLIC__/temp/contact.jpg" alt=""/></div>
+		  <div class="announce recruite wrapper">
+		      <div class="banner-title"><h1>RECRUIT</h1><h3>人力资源</h3></div>
+				<div class="conNaw">
+					 <ul>
+					 {{ffcategory catid=$cat.parentid to=dd}}
+					 {{foreach from=$dd.child item=i}}
+					  <li {{if $cat.catid eq $i.catid}} class="current" {{/if}}><a href="{{$i.url}}">{{$i.name}}</a></li>
+					 {{/foreach}}
+					 </ul>
+				</div>
+				<div class="position">
+				   <span>当前位置 :</span><a href="__ROOT__">首页 /</a><a href="__ROOT__/rlzy"> 人力资源 /</a>
+				   {{ffposition a_class="last"}}
+			 </div>
+			 	<div class="into-text">
+				   <div class="slide">
+		{{$data.content}}
+					 
+				  </div>
+				</div>
+		  </div>
+</div>
+{{include file="system/footer.html"}}

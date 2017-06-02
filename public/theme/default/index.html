@@ -1,0 +1,66 @@
+{{include file="system/header.html"}}
+<!--header-box 结束-->
+<!--banner 开始-->
+ <div class="banner" id="banner" >
+	<!-- <a href="#" class="d1"><img src="__PUBLIC__/temp/banner1.jpg" alt=""/></a>
+	<a href="#" class="d1"><img src="__PUBLIC__/temp/banner2.jpg" alt=""/></a>
+	<a href="#" class="d1"><img src="__PUBLIC__/temp/banner3.jpg" alt=""/></a> -->
+	{{ffad aid=1}}
+	<div class="d2" id="banner_id">
+		<ul class="clearfix">
+		     <li class="nuw"></li>
+			 <li></li>
+			 <li></li>
+		</ul>
+	</div>
+</div>
+<!--banner 结束-->
+<!--项目展示 开始-->
+<div class="project-box">
+     <div class="project wrapper clearfix">
+	        <div class="project-show fl">
+			       <a href="__ROOT__/pshow" class="show"></a>
+			       {{fflist catid=13 pagesize=1 order="sort asc,update_time desc" to=d}}
+			      
+				  <div class="show-img"><img src="{{$d.0.thumb}}" alt="{{$d.0.title}}"/></div>
+				  <a class="check-detail" href="{{$d.0.url}}"><span class="fl">查看详情</span><b class="details fr">&gt;</b></a>
+			</div>
+			<div class="company-news fl">
+			    <a class="check-detail" href="__ROOT__/information"> <b class="details fl">+</b><span class="fr">公司新闻</span></a>
+				{{fflist catid=8  order="sort asc,update_time desc" attr="top" pagesize=1 to=d}}
+				<style>
+                    .news-text a:hover h3{color:#b0251e; }
+				</style>
+				<div class="news">
+				    <div class="news-img fl"><a href="{{$d.0.url}}"><img src="{{$d.0.thumb}}" alt="{{$d.0.title}}"/></a></div>
+					<div class="news-text fr">
+					     <a href="{{$d.0.url}}"><h3>{{$d.0.title|truncate:"20":"…"}}</h3></a>
+						 <span style="word-break:break-all;">{{$d.0.description|truncate:"36":"…"}}</span>
+					</div>
+				</div>
+			<style>
+                .new-list a:hover span{color:#b0251e;}
+			</style>
+			    <ul class="new-list">
+			    {{fflist catid=8  order="sort asc,update_time desc" attr="top" pagesize=5 to=d}}
+				{{foreach from=$d item=i key=k}}
+				{{if $k neq 0}}
+				     <li><a href="{{$i.url}}"><span>{{$i.title|truncate:"20":"…"}}</span><b>{{$i.update_time|date_format:"%Y-%m-%d"}}</b></a></li>
+				 {{/if}}
+				 {{/foreach}} 
+					
+				</ul>
+			</div>
+			<div class="cooperate fr">
+			    <h3>商务合作 | cooperation</h3>
+				<ul class="cooper-list">
+				{{ffcategory catid=16 to=tfd}}
+				{{foreach from=$tfd.child item=ii}}
+				     <li><a href="{{$ii.url}}">{{$ii.name}}</a></li>
+				    {{/foreach}}
+					
+				</ul>
+			</div>
+	 </div>
+</div>
+{{include file="system/footer.html"}}

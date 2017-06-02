@@ -1,0 +1,25 @@
+<?php
+return array (
+  0 => 'cid',
+  1 => 'catid',
+  2 => 'title',
+  3 => 'style',
+  4 => 'thumb',
+  5 => 'brcode',
+  6 => 'attr',
+  7 => 'description',
+  8 => 'status',
+  9 => 'sort',
+  10 => 'url',
+  11 => 'template',
+  12 => 'seokeywords',
+  13 => 'seodescription',
+  14 => 'seotitle',
+  15 => 'user_id',
+  16 => 'username',
+  17 => 'create_time',
+  18 => 'update_time',
+  '_autoinc' => true,
+  '_pk' => 'cid',
+);
+?>

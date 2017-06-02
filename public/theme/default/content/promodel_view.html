@@ -1,0 +1,65 @@
+{{include file="system/header.html"}}
+<!--走进达亿 开始-->
+<div class="into-box">
+   <div class="conbackground"><img src="__PUBLIC__/images/project_view.jpg" alt=""/></div>
+    <div class="into wrapper">
+	   <div class="contile1">
+	      <div class="banner-title"><h1>PROJECT</h1><h3>项目展示</h3></div>
+			 <div class="position">
+				   <span>当前位置 :</span><a href="__ROOT__">首页 /</a><a href="__ROOT/pshow"> 项目展示 /</a>{{ffposition a_class="now"}}
+			 </div>
+		</div>
+		<div class="content-box project">
+		    <div class="conNaw">
+			     <ul>
+			     {{ffcategory catid=$cat.parentid to=dd}}
+			     {{foreach from=$dd.child item=i}}
+				      <li {{if $cat.catid eq $i.catid}} class="current" {{/if}}><a href="{{$i.url}}">{{$i.name}}</a></li>
+				      {{/foreach}}
+					  
+				 </ul>
+			</div>
+			<div class="into-text projects">
+			   <div class="slide">
+                     <div class="project-text" style="height: 50px;">
+					     <!-- <div class="project-img fl"><img src="{{$data.thumb}}" alt=""/></div>-->
+						  <div class="project-cont fl">
+						     <h4>{{$data.title}}</h4>
+						<!--	 <div class="introduct">
+							    <span>开工时间：{{$data.start_Time|date_format:"%Y-%m-%d"}}</span><span>竣工时间：{{$data.pretty_Time|date_format:"%Y-%m-%d"}}</span>
+								 <span>建筑面积：{{$data.structure}}平米</span><span>工程估价：{{$data.cost}}</span>
+								 <span>工程类别：{{$data.cate}}</span><span>项目阶段：{{$data.phase}}</span>
+								 <p>项目地址：{{$data.paddress}}</p>
+								 <p>工程简介：{{$data.description}}</p>
+							 </div>-->
+						  </div>
+					 </div>
+					
+					   <p>
+					   {{$data.content}}
+					   </p>
+			  </div>
+			  <div class="nextPage clearfix">
+			         <div class="nextLefe">
+                         <div class="first-page">
+                             {{if $data.pre_title neq '没有了'}}
+                             <span>上一篇：</span><a href="{{$data.pre_url}}">{{$data.pre_title}}</a>
+                             {{/if}}
+                         </div>
+					       <div class="first-page">
+					        {{if $data.next_title neq '没有了'}}
+						       <span>下一篇：</span><a href="{{$data.next_url}}">{{$data.next_title}}</a>
+						       {{/if}}
+						   </div>
+
+					 </div>
+					 <a href="__ROOT__/pshow" class="back">返回</a>
+			   </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="__PUBLIC__/js/jquery.nicescroll.min.js"></script>
+{{include file="system/footer.html"}}

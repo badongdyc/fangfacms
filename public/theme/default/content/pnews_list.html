@@ -1,0 +1,38 @@
+{{include file="system/header.html"}}
+<style>
+a{color:#888;}
+li:hover a{color:#fff;}
+</style>
+<!--新闻资讯 开始-->
+<div class="announce-box">
+          <div class="announce-img"><img src="__PUBLIC__/temp/contact.jpg" alt=""/></div>
+		  <div class="announce wrapper">
+		      <div class="banner-title"><h1>NEWS</h1><h3>新闻资讯 </h3></div>
+				<div class="conNaw">
+					 <ul>
+					 {{ffcategory catid=$cat.parentid to=dat}}
+					 {{foreach from=$dat.child item=i}}
+						  <li {{if $cat.catid eq $i.catid}} class="current" {{/if}}><a href="{{$i.url}}">{{$i.name}}</a></li>
+						  {{/foreach}}
+						
+					 </ul>
+				</div>
+				<div class="position">
+				   <span>当前位置 :</span><a href=__ROOT__">首页 /</a><a href="__ROOT__/information"> 新闻资讯  /</a>{{ffposition a_class="last"}}
+			 </div>
+			     <ul class="announce-list clearfix">
+			     {{ffpagelist pagesize=10 order="sort asc,update_time desc" to=dd}}
+			     {{foreach from=$dd.info item=i}}
+				     <li><div class="data"><span>{{$i.update_time|date_format:"%Y.%m"}}</span><b>{{$i.update_time|date_format:"%d"}}</b></div>
+					     <div class="announce-text">
+						      <a href="{{$i.url}}">{{$i.title|truncate:"40":""}}</a>
+							  <p>{{$i.description|truncate:"64":"…"}}</p>
+						 </div>
+					 </li>
+					 {{/foreach}}
+
+				</ul>
+				{{$dd.pages}}
+		  </div>
+</div>
+{{include file="system/footer.html"}}

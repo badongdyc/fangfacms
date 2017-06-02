@@ -1,0 +1,28 @@
+<?php
+return array (
+  0 => 'catid',
+  1 => 'modelid',
+  2 => 'type',
+  3 => 'controller',
+  4 => 'parentid',
+  5 => 'name',
+  6 => 'ename',
+  7 => 'thumb',
+  8 => 'catdir',
+  9 => 'description',
+  10 => 'seotitle',
+  11 => 'seokeywords',
+  12 => 'seodescription',
+  13 => 'url',
+  14 => 'template',
+  15 => 'permissions',
+  16 => 'setting',
+  17 => 'ishtml',
+  18 => 'islock',
+  19 => 'sort',
+  20 => 'cattype',
+  21 => 'topcatid',
+  '_autoinc' => true,
+  '_pk' => 'catid',
+);
+?>

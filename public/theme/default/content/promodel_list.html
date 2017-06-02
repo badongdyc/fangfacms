@@ -1,0 +1,53 @@
+{{include file="system/header.html"}}
+<style>
+a{color:#888;}
+li:hover a{color:#fff;}
+</style>
+
+<!--走进达亿 开始-->
+<div class="into-box">
+   <div class="conbackground"><img src="__PUBLIC__/images/project_view.jpg" alt=""/></div>
+    <div class="into wrapper">
+	   <div class="contile1">
+	      <div class="banner-title"><h1>PROJECT</h1><h3>项目展示 </h3></div>
+			 <div class="position">
+				   <span>当前位置 :</span><a href="__ROOT__">首页 /</a><a href="__ROOT/pshow"> 项目展示 /</a>{{ffposition a_class="now"}}
+			 </div>
+		</div>
+		<div class="content-box project">
+		    <div class="conNaw">
+			     <ul>
+			     {{ffcategory catid=$cat.parentid to=d}}
+			     {{foreach from=$d.child item=i}}
+				      <li {{if $cat.catid eq $i.catid}}class="current" {{/if}}><a href="{{$i.url}}">{{$i.name}}</a></li>
+				     {{/foreach}}
+					  
+				 </ul>
+			</div>
+			<div class="item">
+			   <ul class="clearfix item-list">
+			   {{ffpagelist pagesize=6 order="sort asc,update_time desc" to=dt}}
+			   {{foreach from=$dt.info item=i}}
+			       <li>
+				        <div class="item-img"><a href="{{$i.url}}"><img src="{{$i.thumb}}" alt="{{$i.title}}"/></a></div>
+						<a class="titile" href="{{$i.url}}">{{$i.title|truncate:"15":""}}</a>
+						<span class="text">{{$i.description|truncate:"40":"…"}}</span>
+					    <a class="check-detail" href="{{$i.url}}"><span class="fl">查看详情</span><b class="details fr">&gt;</b></a>
+				   </li>
+				   {{/foreach}}
+				  
+			   </ul>
+			{{$dt.pages}}
+			</div>
+		</div>
+	</div>
+</div>
+<script src="__PUBLIC__/js/jquery.nicescroll.min.js"></script>
+    <script>
+        $(document).ready(
+                function() {
+                    $(".content-box .into-text .slide").niceScroll({cursorcolor:"#f3d599"});
+                }
+        );
+    </script>
+{{include file="system/footer.html"}}

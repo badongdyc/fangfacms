@@ -1,0 +1,38 @@
+{{include file="system/header.html"}}
+<style>
+a{color:#888;}
+li:hover a{color:#fff;}
+</style>
+<!--新闻资讯 开始-->
+<div class="announce-box">
+          <div class="announce-img"><img src="__PUBLIC__/temp/contact.jpg" alt=""/></div>
+		  <div class="announce recruite wrapper">
+		      <div class="banner-title"><h1>RECRUIT</h1><h3>人力资源</h3></div>
+				<div class="conNaw">
+					 <ul>
+					 {{ffcategory catid=$cat.parentid to=dd}}
+					 {{foreach from=$dd.child item=i}}
+					  <li {{if $cat.catid eq $i.catid}} class="current" {{/if}}><a href="{{$i.url}}">{{$i.name}}</a></li>
+					 {{/foreach}}
+					 </ul>
+				</div>
+				<div class="position">
+				   <span>当前位置 :</span><a href="__ROOT__">首页 /</a><a href="__ROOT__/rlzy"> 人力资源 /</a>
+				   {{ffposition a_class="last"}}
+			 </div>
+			    <ul class="recruite-list">
+			    {{ffjob catid=$cat.catid pagesize=6 order="sort asc,update_time desc" to=dt}}
+	
+			    {{foreach from=$dt.info item=i}}
+				    <li>
+					    <h4>{{$i.title}}</h4>
+						<p>职位：{{$i.title}}　　学历要求：{{$i.degree}}　　人数要求：{{$i.job_number}}　　工资待遇：{{$i.guerdon}}　　经验要求：{{$i.experience}}</p>
+						<a class="check-detail" href="__ROOT__/fjob/show/job_id/{{$i.id}}/catid/{{$cat.catid}}"><span class="fl">查看详情</span><b class="details fr">&gt;</b></a>
+					</li>
+					{{/foreach}}
+			
+				</ul>
+				{{$dt.pages}}
+		  </div>
+</div>
+{{include file="system/footer.html"}}
